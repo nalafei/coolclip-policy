@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COOLCLIP - Authorization Success</title>
+</head>
+<body>
+    <h1>Authorization Successful!</h1>
+    <p>We have received the authorization code. Please wait...</p>
+    <div id="code"></div>
+
+    <script>
+        // 这段代码可以帮你抓取链接里的 code，方便你录制视频或测试
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        if (code) {
+            document.getElementById('code').innerText = "Auth Code: " + code;
+            console.log("Authorization Code:", code);
+        }
+    </script>
+</body>
+</html>
