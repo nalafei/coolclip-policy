@@ -18,8 +18,19 @@
     <div class="icon">✓</div>
     <h2>TikTok Connected!</h2>
     <p>COOLCLIP has been successfully authorized. You can now start sharing your creative videos.</p>
-    <a href="index.html#upload" class="btn">Go to Dashboard</a>
+    <button class="btn" onclick="continueToApp()">Go to Dashboard</button>
 </div>
+
+<script>
+    function continueToApp() {
+        if (window.opener) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            window.opener.postMessage({ type: 'tiktok_auth_success', code: code }, '*');
+        }
+        window.close();
+    }
+</script>
 
 </body>
 </html>
